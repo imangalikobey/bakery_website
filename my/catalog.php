@@ -1,0 +1,42 @@
+ <?php 
+    session_start();
+    //connecting database
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "homebakery";
+    //creating connection
+    $conn = new mysqli("localhost", "root", "", "homebakery");
+?>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital@1&display=swap" rel="stylesheet">
+            <title>Home page</title>
+        </head>
+        <body>
+        <div>
+            <h1 class="header1">Home Bakery<hr></H1>
+            <ul>
+                <?php 
+                if(isset($_SESSION['login']))//checks the status of login
+                {
+                echo '<li ><a class="active" href="logout.php">Logout</a></li>';
+                echo '<li ><a class="active" href="#">'.$_SESSION['login'].'</a></li>';
+                echo '<li><a href="index.html">Home</a></li>';
+                echo '<li><a href="catalog.php">Catalog</a></li>';
+                echo '<li><a href="#">Contact</a></li>';
+                }
+                else
+                {
+                echo '<li style=><a class="active" href="Registration.html">Registration</a></li>';
+                echo '<li style="><a class="active" href="login.html">Login</a></li>';
+                echo '<li><a href="index.html">Home</a></li>';
+                echo '<li><a href="catalog.php">Catalog</a></li>';
+                echo '<li><a href="#">Contact</a></li>';
+                } ?>
+            </ul>
+        </div>
+            </HTML>
